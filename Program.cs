@@ -7,20 +7,20 @@ string? operatore = Console.ReadLine();
 
 switch (operatore)
 {
-    case "+":
+    case "+": //Somma 
         Console.WriteLine($"{num1} {operatore} {num2} = {num1 + num2}");
         break;
-    case "-":
+    case "-": //Sottrazione
         Console.WriteLine($"{num1} {operatore} {num2} = {num1 - num2}");
         break;
-    case "*":
+    case "*": //Moltiplicazione
         Console.WriteLine($"{num1} {operatore} {num2} = {num1 * num2}");
         break;
-    case "/":
-        if (num2 == 0) Console.WriteLine("Non si può dividere per zero.");
+    case "/": //Divisione
+        if (num2 == 0) Console.WriteLine("Non si può dividere per zero."); //Divisione per zero
         else Console.WriteLine($"{num1} {operatore} {num2} = {num1 / num2}");
         break;
-    default:
-        Console.WriteLine($"Spiacente ma {operatore} non è un operatore valido");
+    default: //Operatore errato
+        Console.WriteLine($"Spiacente ma '{operatore}' non è un operatore valido");
         break;
 }
