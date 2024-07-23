@@ -19,14 +19,29 @@ switch (operatore)
         Console.WriteLine($"{num1} {operatore} {num2} = {num1 * num2}");
         break;
     case "/": //Divisione
-        if (num2 == 0) Console.WriteLine("Non si può dividere per zero."); //Divisione per zero
-        else Console.WriteLine($"{num1} {operatore} {num2} = {num1 / num2}");
+        try
+        {
+            if (num2 == 0) throw new DivideByZeroException();
+            Console.WriteLine($"{num1} {operatore} {num2} = {num1 / num2}");
+        }
+        catch (DivideByZeroException)
+        {
+            try
+            {
+                if (num1 == 0) throw new Exception();
+                Console.WriteLine("Non si può dividere per zero."); //Divisione per zero
+            }
+            catch
+            {
+                Console.WriteLine("Indefinito."); //Indefinito 0/0
+            }
+        }
         break;
     case "^": //Potenza
         Console.WriteLine($"{num1} {operatore} {num2} = {Math.Pow(num1, num2)}");
         break;
     case "V": //Radice n-esima
-    Console.WriteLine($"{num1} {operatore} {num2} = {Math.Pow(num2, 1/num1)}");
+        Console.WriteLine($"{num1} {operatore} {num2} = {Math.Pow(num2, 1 / num1)}");
         break;
     default: //Operatore errato
         Console.WriteLine($"Spiacente ma '{operatore}' non è un operatore valido");
